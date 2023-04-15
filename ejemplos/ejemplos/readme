@@ -1,0 +1,7 @@
+para las alertas instalamos react-toastify
+npm install --save react-toastify
+https://fkhadra.github.io/react-toastify/installation
+importamos en el main para todo el proyecto
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';

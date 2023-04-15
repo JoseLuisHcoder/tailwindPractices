@@ -27,17 +27,20 @@ function App() {
         <Link className="bg-slate-200 p-2 rounded-lg" to="/forgotpassword">
           Forgot password
         </Link>
-        <Link className="bg-slate-200 p-2 rounded-lg" to="/changepassword">
+        <Link
+          className="bg-slate-200 p-2 rounded-lg"
+          to="/changepassword/:token"
+        >
           Change password
         </Link>
       </nav>
       <Routes>
-        <Route path="/" element={<Portfolio />} />
+        <Route path="/portfolio" element={<Portfolio />} />
         <Route element={<AuthLayout />}>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/forgotpassword" element={<ForgetPassword />} />
-          <Route path="/changepassword" element={<ChangePassword />} />
+          <Route path="/changepassword/:token" element={<ChangePassword />} />
         </Route>
         <Route path="/page404" element={<Page404 />} />
       </Routes>
