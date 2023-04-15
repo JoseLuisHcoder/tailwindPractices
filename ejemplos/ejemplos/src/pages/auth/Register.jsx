@@ -13,6 +13,9 @@ const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -22,7 +25,7 @@ const Register = () => {
   const handleToast = (e) => {
     e.preventDefault();
     // console.log(email, password);
-    if ([email, password].includes("")) {
+    if ([email, password, firstName, lastName].includes("")) {
       toast.error("Todos los campos son requeridos", {
         theme: "light",
       });
@@ -34,8 +37,15 @@ const Register = () => {
       });
       return;
     }
+    if (password !== confirmPassword) {
+      toast.error("Las passwords no son iguales ", {
+        theme: "dark",
+      });
+    }
   };
   // Fin validaciones connotifiacines
+
+  //? SE DEBE VALIDAR SI ELEMAIL EXISTE EN LA BASE DE DATOS
 
   return (
     <div className="bg-white p-8 w-full md:w-96 rounded-lg ">
@@ -47,18 +57,18 @@ const Register = () => {
             type="text"
             placeholder="Enter to first name"
             className=" bg-slate-100 w-full  border-gray-200 outline-none py-2 px-8 focus:ring rounded-lg"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
           />
         </div>
         <div className="mt-4 relative">
           <RiUser3Line className="absolute  left-2 text-gray-500 top-1/2  -translate-y-1/2" />
           <input
-            type="email"
+            type="text"
             placeholder="Enter to last name"
             className=" bg-slate-100 w-full  border-gray-200 outline-none py-2 px-8 focus:ring rounded-lg"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
           />
         </div>
         <div className="mt-4 relative">
@@ -97,10 +107,10 @@ const Register = () => {
           <RiLock2Line className="absolute  left-2 text-gray-500 top-1/2  -translate-y-1/2" />
           <input
             type={showPassword ? "text" : "password"}
-            placeholder="Enter your password"
+            placeholder="Confirm your password"
             className=" bg-slate-100 w-full  border-gray-200 outline-none py-2 px-8 focus:ring rounded-lg"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
           />
           {showPassword ? (
             <RiEyeOffLine
