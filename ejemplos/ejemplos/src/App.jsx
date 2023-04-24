@@ -8,6 +8,9 @@ import Register from "./pages/auth/Register";
 import ForgetPassword from "./pages/auth/ForgetPassword";
 import ChangePassword from "./pages/auth/ChangePassword";
 import Page404 from "./pages/auth/Page404";
+import Maquetacion from "./components/basico/Maquetacion";
+import Dropdawn from "./components/basico/Dropdawn";
+import Dashboard1 from "./components/dashboards/dashboard1/Dashboard1";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -33,9 +36,19 @@ function App() {
         >
           Change password
         </Link>
+        <Link className="bg-slate-200 p-2 rounded-lg" to="/maquetacion">
+          Maquetacion
+        </Link>
+        <Link className="bg-slate-200 p-2 rounded-lg" to="/dropdawn">
+          Dropdawn
+        </Link>
+        <Link className="bg-slate-200 p-2 rounded-lg" to="/dashboard1">
+          Dashboard1
+        </Link>
       </nav>
       <Routes>
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/maquetacion" element={<Maquetacion />} />
         <Route element={<AuthLayout />}>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
@@ -43,6 +56,8 @@ function App() {
           <Route path="/changepassword/:token" element={<ChangePassword />} />
         </Route>
         <Route path="/page404" element={<Page404 />} />
+        <Route path="/dropdawn" element={<Dropdawn />} />
+        <Route path="/dashboard1" element={<Dashboard1 />} />
       </Routes>
     </div>
   );
