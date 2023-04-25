@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import {
   RiBarChart2Line,
   RiCalendarTodoLine,
-  RiEarthLine,
   RiLogoutCircleRLine,
   RiMessage3Line,
   RiArrowRightSLine,
